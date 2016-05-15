@@ -27,7 +27,7 @@ if (isset($_POST['txt_fecha'])) {
 	} 
 
 	$sql = "INSERT INTO `citas`(`idcitas`, `hora`, `fecha`, `tipoCita`, `idpaciente`) 
-			VALUES ($idCita,$hora,$fecha,$tipoCita,".$_SESSION['idpac'].");";
+			VALUES ($idCita,'$hora','$fecha','$tipoCita',".$_SESSION['idpac'].");";
 
 	if ($conn->query($sql) === TRUE) {
 	    $message= "Registro Exitoso";
@@ -59,7 +59,7 @@ if (isset($_POST['txt_fecha'])) {
 	<link rel="stylesheet" href="slidebar/css/estilos2.css">
 	<link rel="stylesheet" href="slidebar/css/fonts.css">
 	<link rel="stylesheet" href="js/menu.js">
-	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="css/styles.css">
 	 <script src="slidebar/js/jquery-1.9.1.min.js"></script>
     <script src="slidebar/js/jquery.slides.js"></script>
 	<title>CITAS</title>

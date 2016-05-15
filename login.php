@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if (!isset($_SESSION['user'])) {
+if ($_POST["txtusuario"]) {
 	$usuario=$_POST["txtusuario"];
 	$password=$_POST["txtcontrasella"];
 	$_SESSION["user"]=$usuario;
@@ -43,6 +43,8 @@ else{
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/main2.css">
 	<link rel="stylesheet" href="menu/css/estilos3.css">
@@ -52,6 +54,8 @@ else{
 	<link rel="stylesheet" href="slidebar/css/fonts.css">
 	<link rel="stylesheet" href="js/menu.js">
 	<link rel="stylesheet" href="css/styles.css">
+	 <script src="slidebar/js/jquery-1.9.1.min.js"></script>
+    <script src="slidebar/js/jquery.slides.js"></script>
 <title>Login</title>
 </head>
 
@@ -119,7 +123,8 @@ else{
 				</a>
 			</div>
 	</div>
+
+</body>
 	<!--Scrip para aparecer y desaparecer menu-->
 		<script src="js/menu.js"></script>
-</body>
 </html>
