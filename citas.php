@@ -8,9 +8,9 @@ else{
 }
 
 if (isset($_POST['txt_fecha'])) {
-	$hora=$_POST['txt_fecha'];
+	$hora=$_POST['txt_hora'];
 	$fecha=$_POST['txt_fecha'];
-	$tipoCita=$_POST['txt_fecha'];
+	$tipoCita=$_POST['tipo-cita'];
 	$idCita=0;
 
 	//DBServer
@@ -27,7 +27,7 @@ if (isset($_POST['txt_fecha'])) {
 	} 
 
 	$sql = "INSERT INTO `citas`(`idcitas`, `hora`, `fecha`, `tipoCita`, `idpaciente`) 
-			VALUES ($idCita,$hora,$fecha,$tipoCita,1";
+			VALUES ($idCita,$hora,$fecha,$tipoCita,".$_SESSION['idpac'].");";
 
 	if ($conn->query($sql) === TRUE) {
 	    $message= "Registro Exitoso";
@@ -113,10 +113,10 @@ if (isset($_POST['txt_fecha'])) {
  				 <input name="txt_medico" type="text" class="form-control" />
  				 <p>
  				 <label> Hora:</label>
- 				 <input name="txt_hora" type="text" class="form-control" />
+ 				 <input name="txt_hora" type="text" placeholder="HH:MM" class="form-control" />
  				 <p>
  				 <label> Fecha:</label>
-  				<input name="txt_fecha" type="text" class="form-control"/>
+  				<input name="txt_fecha" type="text" placeholder="AAAA-MM-DD" class="form-control"/>
 
 			<div class="form-group text-right">
 				 <input name="Confirmar" type="submit" value="Confirmar" class="btn btn-info" />

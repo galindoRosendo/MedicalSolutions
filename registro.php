@@ -43,7 +43,7 @@ $sql = "INSERT INTO `pacientes`(`idpaciente`, `nombre`, `apPat`, `apMat`, `gener
 if ($conn->query($sql) === TRUE) {
     $message= "Registro Exitoso";
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Falla al momento de registrar";
 }
 
 $conn->close();
@@ -98,11 +98,12 @@ $conn->close();
 
 	<div class=" col-md-5 center-block no-float top-space text-left">
 		<h1> Registro</h1>
+		<h2> <?php echo $message; ?> </h2>
 		<br><br>
 		<form method="POST" action="registro.php" >
 			<div class="form-group">
 				<label>Apellido Paterno</label>
-				<input name="txtappaterno_reg" type="text" class="form-control"/>
+				<input name="txtappaterno_reg" type="text" class="form-control" />
 
 				<label>Apellido Materno</label>
 				<input name="txtapmaterno_reg" type="text" class="form-control"/>
@@ -142,10 +143,10 @@ $conn->close();
  				 </select>
  				 <p>
  				 <label> Fecha de nacimiento:</label>
- 				 <input name="txt_nac" type="text" class="form-control" />
+ 				 <input name="txt_nac" type="text" class="form-control" placeholder ="AAAA-MM-DD"/>
  				 <p>
  				 <label> Numero telefonico:</label>
- 				 <input name="txt_tel" type="text" class="form-control" />
+ 				 <input name="txt_tel" type="text" class="form-control" placeholder="8677123413" />
  				 <p>
  				 <label> Direccion:</label>
   				<input name="txt_dir" type="text" class="form-control"/>
@@ -154,10 +155,10 @@ $conn->close();
 				<input name="txtusuario_reg" type="text" class="form-control"<?php echo "value='$nombre'" ?>/>
 
 				<label>Contraseña</label>
-				<input name="txtcontraseña_reg" type="text" class="form-control"/>
+				<input name="txtcontraseña_reg" type="password" class="form-control"/>
 
 				<label>Confirmar contraseña</label>
-				<input name="txtcon_contraseña_reg" type="text" class="form-control"/>
+				<input name="txtcon_contraseña_reg" type="password" class="form-control"/>
 				<br>
 			</div>
 			<div class="form-group text-right">

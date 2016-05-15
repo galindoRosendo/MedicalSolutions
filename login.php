@@ -8,11 +8,11 @@ if (!isset($_SESSION['user'])) {
 //DBServer
 $servername = "db626441514.db.1and1.com";
 $username = "dbo626441514";
-$password = "password";
+$passworddb = "password";
 $dbname = "db626441514";
 
 // Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
+$conn = mysqli_connect($servername, $username, $passworddb, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Error de conexion: " . $conn->connect_error);
@@ -23,10 +23,13 @@ $sql = "SELECT usuario, password, idpaciente
 		WHERE usuario='$usuario' and password='$password';";
 
 if ($result=$conn->query($sql)) {
-    $usuario=$_SESSION["user"];
+	$row=$result->fetch_assoc();
+	$_SESSION['idpac'] = $row['idpaciente'];
+    $_SESSION["user"]= $row['usuario'];
+    $message = "Bienvenido ".$_SESSION['user'];
     
 } else {
-    echo "Error: " . $result . "<br>" . $conn->error;
+    $message= "Error al iniciar sesion";
 }
 $conn->close();
 }
@@ -82,6 +85,7 @@ else{
 
 	<div id="login" class="col-md-5 center-block no-float top-space text-left">
 		<h1> Login</h1>
+		<h2> <?php echo $message; ?> </h2>
 		<br><br>
 		<form method="POST" action="login.php" >
 			<div class="form-group">
@@ -90,7 +94,7 @@ else{
 				<br>
 
 				<label>Contraseña</label>
-				<input name="txtcontrasella" type="text" class="form-control"/>
+				<input name="txtcontrasella" type="password" class="form-control"/>
 			</div>
 			<div class="form-group text-right">
 				 <input name="Guardar" type="submit" value="Iniciar" class="btn btn-info" />

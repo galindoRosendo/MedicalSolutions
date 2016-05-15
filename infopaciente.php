@@ -103,20 +103,25 @@ else{
 				 	<td>".$row['genero']."</td>
 				 </tr>
 				 <tr>
-				 	<td>Sangre</td>
+				 <tr>
+				 	<td>Estado Civil</td>
 				 	<td>".$row['eCivil']."</td>
 				 </tr>
 				 <tr>
-				 	<td>Fecha Nacimiento</td>
+				 	<td>Sangre</td>
 				 	<td>".$row['tipoSangre']."</td>
 				 </tr>
 				 <tr>
-				 	<td>Telefono</td>
+				 	<td>Fecha Nacimiento</td>
 				 	<td>".$row['fechaNacimiento']."</td>
 				 </tr>
 				 <tr>
-				 	<td>Direccion</td>
+				 	<td>Telefono</td>
 				 	<td>".$row['telefono']."</td>
+				 </tr>
+				 <tr>
+				 	<td>Direccion</td>
+				 	<td>".$row['direccion']."</td>
 				 </tr>";
 			
 			echo $renglon;
