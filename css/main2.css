@@ -1,0 +1,105 @@
+div img{
+	position: relative;
+	width: 250px;
+}
+#titulo{
+position: relative;
+}
+.centrar{
+			position: absolute;
+
+		/*nos posicionamos en el centro del navegador*/
+
+		top:50%;
+
+		left:50%;
+
+		/*determinamos una anchura*/
+
+		width:400px;
+
+		/*indicamos que el margen izquierdo, es la mitad de la anchura*/
+
+		margin-left:-200px;
+
+		/*determinamos una altura*/
+
+		height:200px;
+
+		/*indicamos que el margen superior, es la mitad de la altura*/
+
+		margin-top:-100px;
+
+		padding:5px;
+}
+
+.centrar_registro{
+      position: relative;
+
+    /*nos posicionamos en el centro del navegador*/
+
+    top:50%;
+
+    left:50%;
+
+    /*determinamos una anchura*/
+
+    width:400px;
+
+    /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+
+    margin-left:-200px;
+
+    /*determinamos una altura*/
+
+    height:0px;
+
+    /*indicamos que el margen superior, es la mitad de la altura*/
+
+    margin-top:-0px;
+
+    padding:5px;
+}
+
+input[id^="spoiler"]{
+ display: none;
+}
+/* Estilo botón clicable */
+input[id^="spoiler"] + label {
+  display: block;
+  width: 200px;
+  margin: 0 auto;
+  padding: 5px 20px;
+  background: #2868FF;
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all .6s;
+  float: left;
+}
+/* Estilo botón cuando su INPUT está seleccionado */
+input[id^="spoiler"]:checked + label {
+  color: #333;
+  background: #ccc;
+}
+/* Estilo caja SPOILER (inicialmente oculto) */
+input[id^="spoiler"] ~ .spoiler {
+  width: 90%;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  margin: 10px auto 0; 
+  padding: 10px; 
+  background: #eee;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: all .6s;
+}
+/* Estilo caja SPOILER cuando su INPUT está seleccionado */
+input[id^="spoiler"]:checked + label + .spoiler{
+  height: auto;
+  opacity: 1;
+  padding: 10px;
+}

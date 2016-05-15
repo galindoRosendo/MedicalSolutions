@@ -1,0 +1,126 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body{
+	background: #FFFFFA;
+}
+.logo{
+	text-align: center;
+	width: 20%;
+	position: relative;
+	left: 40%;
+}
+header{
+	width: 100%;
+}
+header nav{
+	width: 90%;
+	max-width: 1000px;
+	margin: 20px auto;
+	background: #024959;
+	text-align: center;
+}
+ section, footer{
+	width: 90%;
+	max-width: 1000px;
+	margin: 20px auto;
+}
+footer{
+	background: #000;
+	color: #fff;
+	clear: both;
+	padding: 10px 0px;
+	text-align: center;
+
+}
+p{
+	text-align: center;
+}
+
+.menu_bar{
+	display: none;
+}
+header nav ul{
+	overflow: hidden;
+	list-style: none;
+	text-align: center;
+}
+header nav ul li{
+	float: left;
+}
+header nav ul li a{
+	color: #fff;
+	padding: 20px;
+	display: block;
+	text-decoration: none;
+}
+
+header nav ul li span{
+	margin-right: 10px;
+}
+header nav ul li a:hover{
+	background:#037e8c;
+}
+
+section{
+	padding: 20px;
+}
+@media screen and (max-width: 800px) {
+
+	header nav{
+		width: 80%;
+		height: 100%;
+		margin: 0;
+		position: fixed;
+
+	}
+	header nav ul li{
+		display: block;
+		float: none;
+		border-bottom: 1px solid rgba(255,255,255,.3);
+	}
+	#ocultar_menu{
+		display: none;
+	}
+
+	.menu_bar{
+		display: block;
+		width: 100%;
+		background: #ccc;
+
+	}
+
+	.menu_bar .bt_menu{
+		display: block;
+		padding: 20px;
+		background: #024959;
+		color: #fff;
+		text-decoration: none;
+		font: bold;
+		font-size: 25px;
+		-webkit-box-sizing:border-box ;
+		-moz-box-sizing:border-box ;
+		box-sizing:border-box ;
+	}
+	.menu_bar span{
+		float: right;
+		font-size: 30px;
+	}
+
+#ocultar_menu{
+	z-index: 2;
+}
+#slidebar{
+	z-index: 1;
+}
+div{
+	position: relative;
+	clear: both;
+}
+#login{
+	z-index: 1;
+}
+#paciente{
+	z-index: 1;
+}
