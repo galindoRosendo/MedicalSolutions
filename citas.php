@@ -30,7 +30,7 @@ if (isset($_POST['txt_fecha'])) {
 			VALUES ($idCita,'$hora','$fecha','$tipoCita',".$_SESSION['idpac'].");";
 
 	if ($conn->query($sql) === TRUE) {
-	    $message= "Registro Exitoso";
+	    $message= "Cita Agendada";
 	} else {
 	    echo "Error: " . $sql . "<br>" . $conn->error;
 	}

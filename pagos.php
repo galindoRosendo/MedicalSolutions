@@ -62,27 +62,27 @@ else{
 		<form method="POST" action="" >
 			<div class="form-group">
 
-				<label>Valor a pagar:</label>
+				<label>servicio a pagar:</label>
 				<input name="valor_pagar" type="text" class="form-control"//>
 
-				<label>Servicio a pagar:</label>
+				<label>Precio:</label>
 				<input name="servicio_pagar" type="text" class="form-control"/>
 
-				<label>Apellido Paterno</label>
+				<label>Abono</label>
 				<input name="txtappaterno_reg" type="text" class="form-control"/>
 
-				<label>Apellido Materno</label>
+				<label>Saldo restante</label>
 				<input name="txtapmaterno_reg" type="text" class="form-control"/>
 
-				<label>Nombre</label>
+				<!-- <label>Nombre</label>
 				<input name="txtnombre_reg" type="text" class="form-control"/>
 
 				<label>Telefono</label>
-				<input name="telefono_pagar" type="text" class="form-control"/>
+				<input name="telefono_pagar" type="text" class="form-control"/> -->
 				<br>
 			</div>
 			<div class="form-group text-right">
-				 <input name="Guardar" type="submit" value="Enviar" class="btn btn-info" />
+				 <input name="Guardar" type="submit" value="GUARDAR" class="btn btn-info" />
 			</div>
 		</form>
 	</div>
