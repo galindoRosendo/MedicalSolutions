@@ -4,22 +4,16 @@ if (isset($_SESSION['user'])) {
 	$usuario=$_SESSION['user'];
 	$idpac=$_SESSION['idpac'];
 
-	$servername = "db626441514.db.1and1.com";
-	$username = "dbo626441514";
-	$password = "password";
-	$dbname = "db626441514";
+	
+	
+	function patient(){
+		$servername = "db626441514.db.1and1.com";
+		$username = "dbo626441514";
+		$password = "password";
+		$dbname = "db626441514";
 
-	// Create connection
-	$conn = mysqli_connect($servername, $username, $password, $dbname);
-	// Check connection
-	if ($_SESSION['admin']==true) {
-		$citas = admin();
-	}
-	else{
-		$citas = patient();
-	}
-
-	function admin(){
+		// Create connection
+		$conn = mysqli_connect($servername, $username, $password, $dbname);
 		if ($conn->connect_error) {
 	    die("Error de conexion: " . $conn->connect_error);
 		} 
@@ -28,8 +22,6 @@ if (isset($_SESSION['user'])) {
 				FROM citas
 				WHERE idpaciente='$idpac' and estado='A';";
 
-
-
 		if ($result=$conn->query($sql)) {
 			$all=$result->fetch_assoc();
 		    $usuario=$_SESSION["user"];
@@ -38,16 +30,22 @@ if (isset($_SESSION['user'])) {
 		    echo "Error: " . $result . "<br>" . $conn->error;
 		}
 		$conn->close();
-			return $all;
+		return $all;
 	}
-	function patient(){
+	function admin(){
+		$servername = "db626441514.db.1and1.com";
+		$username = "dbo626441514";
+		$password = "password";
+		$dbname = "db626441514";
+
+		// Create connection
+		$conn = mysqli_connect($servername, $username, $password, $dbname);
 		if ($conn->connect_error) {
 	    die("Error de conexion: " . $conn->connect_error);
 		} 
 
 		$sql = "SELECT *
-				FROM citas
-				WHERE idpaciente='$idpac';";
+				FROM citas;";
 
 
 
@@ -59,9 +57,20 @@ if (isset($_SESSION['user'])) {
 		    echo "Error: " . $result . "<br>" . $conn->error;
 		}
 		$conn->close();
-			return ;
 		return $all;
 	}
+
+	if ($_SESSION['admin']==true) {
+		$citas = admin();
+		echo "admin".var_dump($citas);
+
+	}
+	else{
+		$citas = patient();
+		echo "patient".var_dump($citas);
+	}
+
+	
 	
 	}
 else{
@@ -124,13 +133,13 @@ else{
 			for ($i=0; $i <count($headT) ; $i++) { 
 				$salida+="<th>".$headT[$i]."</th>";
 			}
-			for ($i=0; $i <count($all) ; $i++){
+			for ($i=0; $i <count($citas) ; $i++){
 				$salida="
 				<tr>
-				 	<td>".$all['idcitas']."</td>
-				 	<td>".$all['hora']."</td>
-				 	<td>".$all['fecha']."</td>
-				 	<td>".$all['tipoCita']."</td>
+				 	<td>".$citas['idcitas']."</td>
+				 	<td>".$citas['hora']."</td>
+				 	<td>".$citas['fecha']."</td>
+				 	<td>".$citas['tipoCita']."</td>
 				 </tr>";
 				 				 
 			}

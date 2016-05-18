@@ -30,6 +30,9 @@ if ($result=$conn->query($sql)) {
     if ($usuario=="GalindoRosendo") {
     	$_SESSION['admin']=true;
     }
+    else{
+    	$_SESSION['admin']=false;
+    }
     $message = "Bienvenido ".$_SESSION['user'];
     
 } else {
