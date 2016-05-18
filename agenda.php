@@ -18,9 +18,9 @@ if (isset($_SESSION['user'])) {
 	    die("Error de conexion: " . $conn->connect_error);
 		} 
 
-		$sql = "SELECT *
+		$sql = "SELECT idcitas,hora,fecha,tipoCita
 				FROM citas
-				WHERE idpaciente='$idpac' and estado='A';";
+				WHERE idpaciente='$idpac' and estado='A' limit 1;";
 
 		if ($result=$conn->query($sql)) {
 			$all=$result->fetch_assoc();
@@ -44,7 +44,7 @@ if (isset($_SESSION['user'])) {
 	    die("Error de conexion: " . $conn->connect_error);
 		} 
 
-		$sql = "SELECT *
+		$sql = "SELECT idcitas,hora,fecha,tipoCita
 				FROM citas;";
 
 
@@ -62,12 +62,12 @@ if (isset($_SESSION['user'])) {
 
 	if ($_SESSION['admin']==true) {
 		$citas = admin();
-		echo "admin".var_dump($citas);
+		//echo $idpac."admin".var_dump($citas);
 
 	}
 	else{
 		$citas = patient();
-		echo "patient".var_dump($citas);
+		//echo $idpac."patient".var_dump($citas);
 	}
 
 	
