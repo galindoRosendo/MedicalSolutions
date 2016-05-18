@@ -3,6 +3,7 @@ session_start();
 if ($_POST["txtusuario"]) {
 	$usuario=$_POST["txtusuario"];
 	$password=$_POST["txtcontrasella"];
+
 	$_SESSION["user"]=$usuario;
 
 //DBServer
@@ -26,6 +27,9 @@ if ($result=$conn->query($sql)) {
 	$row=$result->fetch_assoc();
 	$_SESSION['idpac'] = $row['idpaciente'];
     $_SESSION["user"]= $row['usuario'];
+    if ($usuario=="GalindoRosendo") {
+    	$_SESSION['admin']=true;
+    }
     $message = "Bienvenido ".$_SESSION['user'];
     
 } else {

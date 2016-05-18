@@ -26,11 +26,11 @@ if (isset($_POST['txt_fecha'])) {
 	    die("Error de conexion: " . $conn->connect_error);
 	} 
 
-	$sql = "INSERT INTO `citas`(`idcitas`, `hora`, `fecha`, `tipoCita`, `idpaciente`) 
-			VALUES ($idCita,'$hora','$fecha','$tipoCita',".$_SESSION['idpac'].");";
+	$sql = "INSERT INTO `citas`(`idcitas`, `hora`, `fecha`, `tipoCita`, `idpaciente`,`estado`) 
+			VALUES ($idCita,'$hora','$fecha','$tipoCita',".$_SESSION['idpac'].",'P');";
 
 	if ($conn->query($sql) === TRUE) {
-	    $message= "Cita Agendada";
+	    $message= "Registro Exitoso";
 	} else {
 	    echo "Error: " . $sql . "<br>" . $conn->error;
 	}

@@ -2,10 +2,77 @@
 session_start();
 if (isset($_SESSION['user'])) {
 	$usuario=$_SESSION['user'];
-}
+	$idpac=$_SESSION['idpac'];
+
+	$servername = "db626441514.db.1and1.com";
+	$username = "dbo626441514";
+	$password = "password";
+	$dbname = "db626441514";
+
+	// Create connection
+	$conn = mysqli_connect($servername, $username, $password, $dbname);
+	// Check connection
+	if ($_SESSION['admin']==true) {
+		$citas = admin();
+	}
+	else{
+		$citas = patient();
+	}
+
+	function admin(){
+		if ($conn->connect_error) {
+	    die("Error de conexion: " . $conn->connect_error);
+		} 
+
+		$sql = "SELECT *
+				FROM citas
+				WHERE idpaciente='$idpac' and estado='A';";
+
+
+
+		if ($result=$conn->query($sql)) {
+			$all=$result->fetch_assoc();
+		    $usuario=$_SESSION["user"];
+		    
+		} else {
+		    echo "Error: " . $result . "<br>" . $conn->error;
+		}
+		$conn->close();
+			return $all;
+	}
+	function patient(){
+		if ($conn->connect_error) {
+	    die("Error de conexion: " . $conn->connect_error);
+		} 
+
+		$sql = "SELECT *
+				FROM citas
+				WHERE idpaciente='$idpac';";
+
+
+
+		if ($result=$conn->query($sql)) {
+			$all=$result->fetch_assoc();
+		    $usuario=$_SESSION["user"];
+		    
+		} else {
+		    echo "Error: " . $result . "<br>" . $conn->error;
+		}
+		$conn->close();
+			return ;
+		return $all;
+	}
+	
+	}
 else{
 	$usuario="Anonimo";
 }
+//SELECT *
+		//FROM citas
+		//WHERE usuario='$usuario' and estado='A';
+
+
+
 
 ?>
 <!DOCTYPE html>
@@ -49,6 +116,31 @@ else{
 		</nav>
 		
 	</header>
-	
+	<h2><?php echo "Citas de ".$usuario; ?> </h2>
+	<table class="table table-striped">
+		<?php 
+			$headT = array('No de cita','Hora','Fecha','Tipo de Cita');
+			$salida="";
+			for ($i=0; $i <count($headT) ; $i++) { 
+				$salida+="<th>".$headT[$i]."</th>";
+			}
+			for ($i=0; $i <count($all) ; $i++){
+				$salida="
+				<tr>
+				 	<td>".$all['idcitas']."</td>
+				 	<td>".$all['hora']."</td>
+				 	<td>".$all['fecha']."</td>
+				 	<td>".$all['tipoCita']."</td>
+				 </tr>";
+				 				 
+			}
+				
+			echo $salida;
+
+		 ?>
+
+
+	</table>
+
 </body>
 </html>
